@@ -1,6 +1,5 @@
 package com.nhncorp.mods.socket.io.impl.transports;
 
-import com.nhncorp.mods.socket.io.common.RequestUtils;
 import com.nhncorp.mods.socket.io.impl.ClientData;
 import com.nhncorp.mods.socket.io.impl.HandshakeData;
 import com.nhncorp.mods.socket.io.impl.Manager;
@@ -16,7 +15,6 @@ import org.vertx.java.core.json.JsonObject;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @see <a href="https://github.com/LearnBoost/socket.io/blob/master/lib/transports/http.js">http.js</a>
@@ -45,7 +43,7 @@ public abstract class Http extends Transport {
 
 		this.isValid = isValidRequest();
 		if (!this.isValid) {
-			String clientIp = RequestUtils.getRemoteAddress(request);
+			String clientIp = request.remoteAddress().getAddress().toString();
 			log.debug("invalid client ip is '" + clientIp + "'");
 			response.setStatusCode(200);
 			response.end();

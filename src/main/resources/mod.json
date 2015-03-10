@@ -1,0 +1,7 @@
+{
+  "description":"Vert.x module for Socket.io",
+  "licenses": ["The Apache Software License Version 2.0"],
+  "author": " Keesun Baik",
+  "keywords": ["vertx", "socket.io"],
+  "homepage": "https://github.com/hubrick/mod-socket-io"
+}
